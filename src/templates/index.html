@@ -1,12 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>FlaskApp</title>
+    <title>Split Page</title>
+    <style>
+        body {
+            background-color: rgba(0, 0, 255, 0.29);
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 50%;
+        }
+        table {
+            width: 80%;
+            padding: 10px;
+        }
+        img {
+            width: 80%;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <h2>Welcome to FlaskApp!</h2>
-    <img src="{{ qrcode(qr_code, box_size=15, border=5, icon_img='https://www.agner.io/icon.jpg') }}">
+<div id="leftSide" style="float: left">
+    <table>
+        <tr>
+            <th>Table 1</th>
+        </tr>
+        <tr>
+            <td>Content goes here</td>
+        </tr>
+    </table>
+    <img src="{{ qrcode(qr_code_p1) }}">
+</div>
+<div id="rightSide" style="float: right">
+    <table>
+        <tr>
+            <th>Table 2</th>
+        </tr>
+        <tr>
+            <td>Content goes here</td>
+        </tr>
+    </table>
+    <img src="{{ qrcode(qr_code_p2) }}">
+</div>
 </body>
 </html>
