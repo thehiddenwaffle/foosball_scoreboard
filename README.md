@@ -26,6 +26,8 @@ Anyway here's the result:
 
 ![](pcb.jpg)
 
+Before you ask, no there will not be images of the butchered solder job on the back of this board.
+
 All there really is to it is the 3v3->resistor and ground connected in a rail to the common terminal of the switches(white wires), 
 then the GPIO wires attached directly to the NO(normally open) terminals of the switches.
 I chose to user the screw terminals so that when/if the switches die or a wire gets severed or whatever they can be easily replaced.
