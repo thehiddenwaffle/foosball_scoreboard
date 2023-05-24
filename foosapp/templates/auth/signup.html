@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<style>
+		form {
+			margin: auto;
+			width: 50%;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			background-color: #f2f2f2;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		label, input {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="submit"] {
+			background-color: #338379;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.error {
+			color: red;
+			font-size: 12px;
+			margin-top: 5px;
+		}
+	</style>
+	<script>
+		function validateForm() {
+			let pin = document.getElementById("pin").value;
+			let confirm_pin = document.getElementById("confirm_pin").value;
+			if (pin !== confirm_pin) {
+				document.getElementById("confirm_pin_error").innerHTML = "pins do not match";
+				return false;
+			} else {
+				document.getElementById("confirm_pin_error").innerHTML = "";
+				return true;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="{{ url_for('auth.register') }}" method="post" onsubmit="return validateForm()">
+		<h1>Sign Up</h1>
+		<label for="nickname">Name:</label>
+		<input type="text" name="nickname" id="nickname" required>
+		<label for="pin">pin(4-6 digits):</label>
+		<input type="password" name="pin" id="pin" pattern="[0-9]{4,6}" inputmode="numeric" required>
+		<label for="confirm_pin">Confirm pin:</label>
+		<input type="password" name="confirm_pin" id="confirm_pin" pattern="[0-9]{4,6}" inputmode="numeric" required>
+		<span id="confirm_pin_error" class="error"></span>
+		<input type="submit" value="Sign Up">
+        <label for="login">Already Signed Up?</label>
+        <a href="{{ url_for('auth.login', player_side=player_side) }}" id="login">login</a>
+	</form>
+</body>
+</html>

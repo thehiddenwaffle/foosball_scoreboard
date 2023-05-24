@@ -4,17 +4,20 @@
     <title>Split Page</title>
     <style>
         body {
-            background-color: rgba(0, 0, 255, 0.29);
+            background-color: #338379;
             margin: 0;
             padding: 0;
         }
-        div{
+
+        div {
             width: 50%;
         }
+
         table {
             width: 80%;
             padding: 10px;
         }
+
         img {
             width: 80%;
             padding: 10px;
@@ -31,7 +34,7 @@
             <td>Content goes here</td>
         </tr>
     </table>
-    <img src="{{ qrcode(qr_code_p1) }}">
+    <img src="{{ qr_code_p1 }}">
 </div>
 <div id="rightSide" style="float: right">
     <table>
@@ -42,7 +45,7 @@
             <td>Content goes here</td>
         </tr>
     </table>
-    <img src="{{ qrcode(qr_code_p2) }}">
+    <img src="{{ qr_code_p2 }}">
 </div>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign in</title>
+	<style>
+		form {
+			margin: auto;
+			width: 50%;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			background-color: #f2f2f2;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		label, input {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="submit"] {
+			background-color: #338379;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.error {
+			color: red;
+			font-size: 12px;
+			margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<form action="{{ url_for('auth.login', player_side=player_side) }}" method="post">
+		<h1>Login</h1>
+		<label for="nickname">Name:</label>
+		<input type="text" name="nickname" id="nickname" required>
+		<label for="pin">pin:</label>
+		<input type="password" name="pin" id="pin" pattern="[0-9]{4,6}" inputmode="numeric" required>
+		<input type="submit" value="Login">
+        <label for="signup">Don't Have An Account?</label>
+        <a href="{{ url_for('auth.register', player_side=player_side) }}" id="signup">sign up</a>
+	</form>
+</body>
+</html>
